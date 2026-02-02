@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO & META -->
-    <title>Tapicería Emmanuel | Restauración en La Serena</title>
-    <meta name="description" content="Expertos en renovación de muebles, tapicería automotriz y hogar en La Serena. Calidad artesanal en Alberto Galán 3272.">
+    <title>Djieslee | Braids & Luxury Grooming</title>
+    <meta name="description" content="Expert Braiding and Hairstyling in Homestead. Waves, Braids, and Cuts. Professional service available full time.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Oswald (Fuerte/Industrial) y Lato (Lectura) -->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Cinzel (Lujo) y Lato (Moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- Iconos -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -23,25 +23,30 @@
                 extend: {
                     fontFamily: {
                         sans: ['Lato', 'sans-serif'],
-                        display: ['Oswald', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
                     },
                     colors: {
-                        'tapi-navy': '#1A2332',    /* Azul Profesional */
-                        'tapi-leather': '#8D6E63', /* Café Cuero */
-                        'tapi-gold': '#D4AF37',    /* Dorado Acento */
-                        'tapi-light': '#F3F4F6',   /* Gris Claro */
-                        'tapi-steel': '#4B5563',   /* Gris Acero */
+                        'lux-black': '#0a0a0a',    /* Negro Profundo */
+                        'lux-gold': '#D4AF37',     /* Dorado Champagne */
+                        'lux-gray': '#1c1c1c',     /* Gris Carbón */
+                        'lux-text': '#F5F5F5',     /* Blanco Humo */
                     },
                     backgroundImage: {
-                        'fabric': "url('https://www.transparenttextures.com/patterns/black-linen.png')",
+                        'noise': "url('https://www.transparenttextures.com/patterns/stardust.png')",
                     },
                     animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-up': 'fadeUp 1s ease-out forwards',
+                        'shine': 'shine 3s infinite',
                     },
                     keyframes: {
-                        fadeInUp: {
+                        fadeUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        shine: {
+                            '0%': { boxShadow: '0 0 0 0 rgba(212, 175, 55, 0)' },
+                            '50%': { boxShadow: '0 0 20px 0 rgba(212, 175, 55, 0.3)' },
+                            '100%': { boxShadow: '0 0 0 0 rgba(212, 175, 55, 0)' },
                         }
                     }
                 }
@@ -50,32 +55,55 @@
     </script>
 
     <style>
-        /* Fondo Hero: Textura de sofá elegante */
+        /* Fondo Hero Premium */
         .hero-bg {
-            background-image: linear-gradient(to right, rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.7)), url('https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1920');
+            background-image: linear-gradient(to top, #0a0a0a 0%, rgba(10, 10, 10, 0.6) 100%), url('https://raw.githubusercontent.com/Enviado98/Djieslee/main/fondo.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        /* Glassmorphism Profesional */
-        .glass-pro {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
+        /* Glassmorphism Oscuro */
+        .glass-dark {
+            background: rgba(28, 28, 28, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Acordeón */
-        .accordion-content {
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-            max-height: 0;
-            opacity: 0;
+        /* Hover de Imágenes */
+        .gallery-card {
             overflow: hidden;
+            position: relative;
         }
-        .accordion-content.active {
-            max-height: 600px;
+        .gallery-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-card:hover::after {
             opacity: 1;
+        }
+        .gallery-card img {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Botón Dorado */
+        .btn-gold {
+            background: linear-gradient(45deg, #D4AF37, #C5A028);
+            color: #0a0a0a;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background: linear-gradient(45deg, #F1D169, #D4AF37);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
 
         .reveal {
@@ -87,44 +115,45 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Botón Premium */
-        .btn-gold {
-            background: linear-gradient(135deg, #D4AF37 0%, #B49226 100%);
-            color: white;
-            transition: all 0.3s ease;
+        
+        .accordion-content {
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
         }
-        .btn-gold:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.4);
+        .accordion-content.active {
+            max-height: 500px;
+            opacity: 1;
         }
     </style>
 </head>
-<body class="bg-tapi-light text-tapi-navy antialiased selection:bg-tapi-leather selection:text-white">
+<body class="bg-lux-black text-lux-text antialiased selection:bg-lux-gold selection:text-black">
 
     <!-- NAVBAR -->
-    <nav class="fixed w-full z-50 top-0 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-200 py-3">
+    <nav class="fixed w-full z-50 top-0 bg-lux-black/95 backdrop-blur-md border-b border-lux-gold/20 py-4 transition-all duration-300">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-tapi-navy text-tapi-gold rounded flex items-center justify-center shadow-lg group-hover:bg-tapi-leather transition-colors">
-                    <i class="ph-fill ph-armchair text-2xl"></i>
+                <div class="border border-lux-gold p-1.5 rounded-sm rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                    <div class="-rotate-45 group-hover:rotate-0 transition-transform duration-500">
+                        <i class="ph-thin ph-scissors text-lux-gold text-xl"></i>
+                    </div>
                 </div>
                 <div>
-                    <h1 class="font-display font-bold text-xl md:text-2xl text-tapi-navy leading-none uppercase tracking-wide">Emmanuel</h1>
-                    <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase">Tapicería Profesional</p>
+                    <h1 class="font-serif text-2xl tracking-[0.2em] text-white">DJIESLEE</h1>
+                    <p class="font-sans text-[8px] text-lux-gold uppercase tracking-[0.4em]">Braids & Style</p>
                 </div>
             </a>
 
             <!-- Botones -->
             <div class="flex items-center gap-4">
-                <button onclick="toggleLanguage()" class="hidden md:flex items-center gap-1 border border-gray-300 px-3 py-1 rounded text-xs font-bold text-gray-600 hover:border-tapi-navy hover:text-tapi-navy transition-colors">
-                    <i class="ph-bold ph-globe"></i> <span id="lang-text">ES</span>
+                <button onclick="toggleLanguage()" class="hidden md:flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-lux-gold transition-colors tracking-widest uppercase">
+                    <i class="ph-fill ph-globe"></i> <span id="lang-text">EN</span>
                 </button>
                 
-                <a href="#contacto" class="btn-gold px-6 py-2 rounded font-bold shadow-md flex items-center gap-2 text-sm tracking-wide">
-                    <i class="ph-bold ph-whatsapp-logo"></i> 
-                    <span class="lang" data-es="Cotizar" data-en="Get Quote">Cotizar</span>
+                <a href="tel:+17542769114" class="border border-lux-gold text-lux-gold hover:bg-lux-gold hover:text-black px-6 py-2 rounded-sm font-serif font-bold text-xs tracking-widest transition-all shadow-[0_0_10px_rgba(212,175,55,0.1)]">
+                    <span class="lang" data-en="BOOK NOW" data-es="RESERVAR">BOOK NOW</span>
                 </a>
             </div>
         </div>
@@ -132,209 +161,210 @@
 
     <!-- HERO SECTION -->
     <header class="hero-bg min-h-screen flex items-center justify-center relative pt-24 pb-12">
-        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <!-- Texto Principal -->
-            <div class="text-center lg:text-left reveal active">
-                <div class="inline-flex items-center gap-2 border border-tapi-gold/50 text-tapi-gold px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 bg-tapi-navy/50 backdrop-blur-sm">
-                    <i class="ph-fill ph-star"></i> <span class="lang" data-es="Expertos en Restauración" data-en="Restoration Experts">Expertos en Restauración</span>
-                </div>
+            <div class="text-center lg:text-left reveal active z-10">
+                <span class="text-lux-gold text-xs font-bold tracking-[0.4em] uppercase mb-4 block animate-fade-up">Homestead, Florida</span>
                 
-                <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                    <span class="lang" data-es="Renueva tus" data-en="Renew your">Renueva tus</span> <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-tapi-gold to-yellow-200">
-                        <span class="lang" data-es="Muebles" data-en="Furniture">Muebles</span>
-                    </span>
+                <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight animate-fade-up" style="animation-delay: 0.2s;">
+                    The Art of <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-yellow-200">Braiding</span>
                 </h1>
                 
-                <p class="text-lg text-gray-300 mb-8 font-light leading-relaxed max-w-lg mx-auto lg:mx-0 lang" 
-                   data-es="Devolvemos la vida a tus sofás y sillas con acabados premium. Tapicería artesanal con atención al detalle en La Serena."
-                   data-en="We bring your sofas and chairs back to life with premium finishes. Artisanal upholstery with attention to detail in La Serena.">
-                   Devolvemos la vida a tus sofás y sillas con acabados premium. Tapicería artesanal con atención al detalle en La Serena.
+                <p class="text-lg text-gray-400 mb-10 font-light leading-relaxed max-w-lg mx-auto lg:mx-0 lang animate-fade-up" style="animation-delay: 0.4s;"
+                   data-en="Experience top-tier hairstyling. From intricate braids to perfect waves. We craft your style with precision and passion."
+                   data-es="Experimenta un estilismo de primer nivel. Desde trenzas intrincadas hasta ondas perfectas. Creamos tu estilo con precisión y pasión.">
+                   Experience top-tier hairstyling. From intricate braids to perfect waves. We craft your style with precision and passion.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="https://wa.me/56949511365" class="bg-white text-tapi-navy hover:bg-gray-100 px-8 py-3 rounded font-bold shadow-xl transition-all flex items-center justify-center gap-2">
-                        <i class="ph-bold ph-image"></i> <span class="lang" data-es="Enviar Foto" data-en="Send Photo">Enviar Foto</span>
+                <!-- BLOQUE ACCIÓN -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center animate-fade-up" style="animation-delay: 0.6s;">
+                    <!-- ESTADO (Abierto/Cerrado) -->
+                    <div class="bg-lux-gray border border-white/10 px-6 py-4 rounded-sm shadow-lg flex items-center gap-4 w-full sm:w-auto justify-center cursor-pointer hover:border-lux-gold/50 transition-colors" onclick="toggleHours()">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <div>
+                            <span class="font-serif font-bold text-white text-sm tracking-wider block lang" data-en="OPEN FULL TIME" data-es="ABIERTO 24/7">OPEN FULL TIME</span>
+                            <span class="text-[10px] text-lux-gold uppercase tracking-widest block lang" data-en="CHECK HOURS" data-es="VER HORARIOS">CHECK HOURS</span>
+                        </div>
+                    </div>
+
+                    <!-- Botones -->
+                    <a href="#gallery" class="btn-gold px-8 py-4 rounded-sm font-bold shadow-lg flex items-center justify-center gap-2 text-xs uppercase tracking-widest w-full sm:w-auto">
+                        <span class="lang" data-en="VIEW GALLERY" data-es="VER GALERÍA">VIEW GALLERY</span>
                     </a>
+                    
+                    <a href="https://maps.app.goo.gl/9ZkX8X5X8X5X8X5" target="_blank" class="text-white hover:text-lux-gold border-b border-transparent hover:border-lux-gold pb-1 transition-all text-xs uppercase tracking-widest w-full sm:w-auto text-center">
+                        <span class="lang" data-en="GET DIRECTIONS" data-es="CÓMO LLEGAR">GET DIRECTIONS</span>
+                    </a>
+                </div>
+
+                <!-- Lista Desplegable de Horarios -->
+                <div id="hours-list" class="accordion-content bg-lux-gray/90 border-l-2 border-lux-gold mt-4 max-w-sm mx-auto lg:mx-0 backdrop-blur-sm">
+                    <div class="p-4 space-y-2 text-xs text-gray-300 font-sans tracking-wide">
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span class="lang" data-en="Monday - Sunday" data-es="Lunes - Domingo">Monday - Sunday</span>
+                            <span class="text-lux-gold font-bold lang" data-en="FULL TIME" data-es="TIEMPO COMPLETO">FULL TIME</span>
+                        </div>
+                        <p class="text-[10px] text-gray-500 italic mt-2 lang" data-en="*Appointments recommended" data-es="*Se recomienda cita previa">*Appointments recommended</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- PANEL DE HORARIOS (Estilo Tarjeta Flotante) -->
-            <div class="relative z-10 reveal active delay-100 w-full max-w-md mx-auto">
-                <div class="glass-pro rounded-xl overflow-hidden p-1 shadow-2xl transform rotate-1 hover:rotate-0 transition-all duration-500">
-                    <!-- Cabecera Clickable -->
-                    <div class="bg-white p-6 rounded-t-lg flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="toggleHours()">
-                        <div class="flex items-center gap-4">
-                            <!-- Indicador Luz -->
-                            <div class="relative">
-                                <div id="status-light" class="w-3 h-3 rounded-full bg-gray-300 ring-2 ring-gray-100"></div>
-                                <div id="status-ping" class="absolute top-0 left-0 w-3 h-3 rounded-full bg-gray-300 animate-ping opacity-75 hidden"></div>
-                            </div>
-                            <div>
-                                <h3 id="status-text" class="font-display font-bold text-xl text-tapi-navy">...</h3>
-                                <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase lang" data-es="Disponibilidad" data-en="Availability">Disponibilidad</p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-100 p-2 rounded text-tapi-navy">
-                            <i id="chevron" class="ph-bold ph-caret-down text-xl transition-transform duration-300"></i>
-                        </div>
-                    </div>
-
-                    <!-- Lista Desplegable -->
-                    <div id="hours-list" class="accordion-content bg-gray-50 text-gray-700">
-                        <div class="p-6 space-y-3">
-                            <div class="flex justify-between items-center border-b border-gray-200 pb-2">
-                                <span class="font-bold text-tapi-navy lang" data-es="Lunes - Sábado" data-en="Mon - Sat">Lunes - Sábado</span>
-                                <span class="font-bold text-white bg-tapi-navy px-2 py-0.5 rounded text-xs">08:00 - 20:00</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="font-bold text-tapi-navy lang" data-es="Domingo" data-en="Sunday">Domingo</span>
-                                <span class="font-bold text-white bg-tapi-leather px-2 py-0.5 rounded text-xs">08:00 - 17:00</span>
-                            </div>
-                            
-                            <div class="mt-4 pt-3 text-center border-t border-gray-200">
-                                <a href="https://maps.google.com/?q=Alberto+Galán+3272,+La+Serena" target="_blank" class="text-xs font-bold text-tapi-navy hover:text-tapi-leather flex items-center justify-center gap-1 uppercase tracking-widest transition-colors">
-                                    <i class="ph-fill ph-map-pin text-tapi-gold"></i> Alberto Galán 3272, La Serena
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- IMAGEN DERECHA (Collage) -->
+            <div class="relative z-10 w-full max-w-md mx-auto lg:ml-auto hidden md:block">
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://raw.githubusercontent.com/Enviado98/Djieslee/main/clientesatisfechos2.jpg" class="rounded-sm shadow-2xl border border-white/10 opacity-80 hover:opacity-100 transition-opacity duration-500 w-full h-64 object-cover transform translate-y-8">
+                    <img src="https://raw.githubusercontent.com/Enviado98/Djieslee/main/clientesatisfechos4.jpg" class="rounded-sm shadow-2xl border border-white/10 opacity-80 hover:opacity-100 transition-opacity duration-500 w-full h-64 object-cover">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- SERVICIOS -->
-    <section class="py-24 bg-tapi-light relative">
-        <div class="absolute inset-0 bg-fabric opacity-5 pointer-events-none"></div>
+    <!-- SERVICIOS / LOOKBOOK -->
+    <section id="gallery" class="py-24 bg-lux-gray relative">
+        <div class="absolute inset-0 bg-noise opacity-5 pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 reveal">
-                <span class="text-tapi-leather font-bold tracking-widest uppercase text-xs mb-2 block font-sans lang" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</span>
-                <h2 class="font-display text-4xl md:text-5xl font-bold text-tapi-navy mb-4">
-                    <span class="lang" data-es="Transformamos tus Espacios" data-en="We Transform Your Spaces">Transformamos tus Espacios</span>
+                <span class="text-lux-gold font-serif tracking-[0.2em] text-xs mb-4 block uppercase lang" data-en="Excellence in every detail" data-es="Excelencia en cada detalle">Excellence in every detail</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">
+                    <span class="lang" data-en="Our Masterpieces" data-es="Nuestras Obras">Our Masterpieces</span>
                 </h2>
-                <div class="w-16 h-1.5 bg-tapi-gold mx-auto"></div>
+                <div class="w-20 h-0.5 bg-lux-gold mx-auto"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Grid de Galería -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <!-- 1. MUEBLES DE HOGAR -->
-                <div class="bg-white rounded-lg p-0 shadow-lg hover:shadow-2xl transition-all duration-300 group reveal overflow-hidden">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=600" alt="Sofá" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-tapi-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <span class="text-white font-bold text-sm uppercase tracking-wider">Ver trabajos</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <i class="ph-thin ph-couch text-4xl text-tapi-leather mb-4"></i>
-                        <h3 class="font-display font-bold text-2xl text-tapi-navy mb-2 lang" data-es="Muebles de Hogar" data-en="Home Furniture">Muebles de Hogar</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed lang" data-es="Tapizado de sofás, sillas de comedor, sillones y sitiales. Amplia variedad de telas." data-en="Upholstery of sofas, dining chairs, armchairs. Wide variety of fabrics.">Tapizado de sofás, sillas de comedor, sillones y sitiales. Amplia variedad de telas.</p>
+                <!-- Item 1: Waves -->
+                <div class="gallery-card group h-96 rounded-sm bg-black">
+                    <img src="https://raw.githubusercontent.com/Enviado98/Djieslee/main/clientesatisfechos3.jpg" alt="Waves" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-20">
+                        <h3 class="font-serif text-xl text-white mb-1">360° Waves</h3>
+                        <p class="text-xs text-lux-gold uppercase tracking-widest">Precision Cut</p>
                     </div>
                 </div>
 
-                <!-- 2. COJINES A MEDIDA -->
-                <div class="bg-white rounded-lg p-0 shadow-lg hover:shadow-2xl transition-all duration-300 group reveal delay-100 overflow-hidden">
-                    <div class="h-56 overflow-hidden relative">
-                         <img src="https://lurdes.co/wp-content/uploads/2023/05/tapizar-muebles-los-estilos-y-opciones-que-debes-conocer.jpg" alt="Cojines" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-8">
-                        <i class="ph-thin ph-scissors text-4xl text-tapi-leather mb-4"></i>
-                        <h3 class="font-display font-bold text-2xl text-tapi-navy mb-2 lang" data-es="Confección a Medida" data-en="Custom Made">Confección a Medida</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed lang" data-es="Fabricación de cojines, fundas y espumas de alta densidad para mayor confort." data-en="Manufacture of cushions, covers and high-density foams for greater comfort.">Fabricación de cojines, fundas y espumas de alta densidad para mayor confort.</p>
+                <!-- Item 2: Braids (Large) -->
+                <div class="gallery-card group h-96 md:col-span-2 rounded-sm bg-black">
+                    <img src="https://raw.githubusercontent.com/Enviado98/Djieslee/main/clientesatisfechos2.jpg" alt="Braids" class="w-full h-full object-cover grayscale group-hover:grayscale-0 object-top">
+                    <div class="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-20">
+                        <h3 class="font-serif text-2xl text-white mb-1">Intricate Braids</h3>
+                        <p class="text-xs text-lux-gold uppercase tracking-widest">Cornrows & Designs</p>
                     </div>
                 </div>
 
-                <!-- 3. RESTAURACIÓN -->
-                <div class="bg-white rounded-lg p-0 shadow-lg hover:shadow-2xl transition-all duration-300 group reveal delay-200 overflow-hidden">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?q=80&w=600" alt="Restauración" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-8">
-                        <i class="ph-thin ph-wrench text-4xl text-tapi-leather mb-4"></i>
-                        <h3 class="font-display font-bold text-2xl text-tapi-navy mb-2 lang" data-es="Restauración" data-en="Restoration">Restauración</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed lang" data-es="Reparación estructural, encolado de sillas y renovación completa de muebles antiguos." data-en="Structural repair, chair gluing and complete renovation of antique furniture.">Reparación estructural, encolado de sillas y renovación completa de muebles antiguos.</p>
+                <!-- Item 3: Styling -->
+                <div class="gallery-card group h-96 md:col-span-2 rounded-sm bg-black">
+                    <img src="https://raw.githubusercontent.com/Enviado98/Djieslee/main/clientesatisfechos5.jpg" alt="Clean Lines" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-20">
+                        <h3 class="font-serif text-2xl text-white mb-1">Clean Lines</h3>
+                        <p class="text-xs text-lux-gold uppercase tracking-widest">Sharp Edges</p>
                     </div>
                 </div>
 
+                <!-- Item 4: Detail -->
+                <div class="gallery-card group h-96 rounded-sm bg-black">
+                    <img src="https://raw.githubusercontent.com/Enviado98/Djieslee/main/clientesatisfechos1.jpg" alt="Process" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 z-20">
+                        <h3 class="font-serif text-xl text-white mb-1">The Process</h3>
+                        <p class="text-xs text-lux-gold uppercase tracking-widest">Professional Care</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="https://wa.me/17542769114?text=Hi,%20I%20want%20to%20book%20an%20appointment." class="inline-flex items-center gap-3 text-white border border-white/20 px-8 py-3 rounded-sm hover:border-lux-gold hover:text-lux-gold transition-all uppercase tracking-widest text-xs font-bold">
+                    <span class="lang" data-en="Book Appointment" data-es="Reservar Cita">Book Appointment</span>
+                    <i class="ph-bold ph-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer id="contacto" class="bg-tapi-navy text-white pt-16 pb-12 border-t border-tapi-gold/20">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <footer class="bg-lux-black text-white pt-20 pb-10 border-t border-lux-gray">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/5 pb-12">
             
-            <div class="text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
-                    <div class="bg-white text-tapi-navy p-1.5 rounded">
-                         <i class="ph-fill ph-armchair text-2xl"></i>
-                    </div>
-                    <h3 class="font-display text-3xl font-bold tracking-wide">EMMANUEL</h3>
-                </div>
-                
-                <div class="space-y-4 text-gray-400 text-sm font-light">
-                    <a href="https://maps.google.com/?q=Alberto+Galán+3272,+La+Serena" target="_blank" class="flex items-center justify-center md:justify-start gap-3 hover:text-white transition-colors">
-                        <i class="ph-fill ph-map-pin text-tapi-gold text-lg"></i>
-                        Barrio Vista Hermosa, Alberto Galán 3272, La Serena
-                    </a>
-                    <a href="tel:+56949511365" class="flex items-center justify-center md:justify-start gap-3 hover:text-white transition-colors">
-                        <i class="ph-fill ph-phone text-tapi-gold text-lg"></i>
-                        +56 9 4951 1365
-                    </a>
-                    <div class="flex items-center justify-center md:justify-start gap-3">
-                        <i class="ph-fill ph-clock text-tapi-gold text-lg"></i>
-                        <div>
-                            <p class="lang" data-es="Lun-Sáb: 08:00 - 20:00" data-en="Mon-Sat: 08:00 - 20:00">Lun-Sáb: 08:00 - 20:00</p>
-                            <p class="lang" data-es="Domingo: 08:00 - 17:00" data-en="Sunday: 08:00 - 17:00">Domingo: 08:00 - 17:00</p>
-                        </div>
-                    </div>
+            <!-- Brand -->
+            <div>
+                <h3 class="font-serif text-3xl tracking-[0.1em] text-white mb-6">DJIESLEE</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6 lang" 
+                   data-en="Dedicated to the art of hair. We provide a premium experience in every cut and style."
+                   data-es="Dedicados al arte del cabello. Brindamos una experiencia premium en cada corte y estilo.">
+                   Dedicated to the art of hair. We provide a premium experience in every cut and style.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-500 hover:text-lux-gold transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-lux-gold transition-colors"><i class="ph-fill ph-tiktok-logo text-xl"></i></a>
                 </div>
             </div>
 
-            <!-- Mapa Estático -->
-            <div class="rounded-lg overflow-hidden h-60 border border-gray-700 relative shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
-                 <iframe 
-                    src="https://maps.google.com/maps?q=Alberto+Galán+3272,+La+Serena,+Coquimbo,+Chile&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            <!-- Contact Info -->
+            <div>
+                <h4 class="font-serif text-sm text-lux-gold uppercase tracking-widest mb-6 lang" data-en="Contact" data-es="Contacto">Contact</h4>
+                <ul class="space-y-4 text-sm text-gray-400 font-light">
+                    <li class="flex items-start gap-3">
+                        <i class="ph-fill ph-map-pin text-lux-gold mt-0.5"></i>
+                        <a href="https://maps.app.goo.gl/9ZkX8X5X8X5X8X5" target="_blank" class="hover:text-white transition-colors">
+                            13412 SW 287th Ter,<br>Homestead, FL 33033
+                        </a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="ph-fill ph-phone text-lux-gold"></i>
+                        <a href="tel:+17542769114" class="hover:text-white transition-colors">+1 (754) 276-9114</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="ph-fill ph-clock text-lux-gold"></i>
+                        <span class="lang" data-en="Full Time Availability" data-es="Disponibilidad Completa">Full Time Availability</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mini Map -->
+            <div>
+                <h4 class="font-serif text-sm text-lux-gold uppercase tracking-widest mb-6 lang" data-en="Location" data-es="Ubicación">Location</h4>
+                <div class="w-full h-32 rounded-sm overflow-hidden bg-lux-gray border border-white/10 grayscale hover:grayscale-0 transition-all duration-500 opacity-70 hover:opacity-100">
+                    <iframe 
+                    src="https://maps.google.com/maps?q=13412+SW+287th+Ter,+Homestead,+FL+33033&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                     width="100%" 
                     height="100%" 
                     style="border:0;" 
                     allowfullscreen="" 
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
+                    loading="lazy">
                  </iframe>
+                </div>
             </div>
-
         </div>
-        <div class="text-center mt-12 text-xs text-gray-500 border-t border-gray-800 pt-8 uppercase tracking-widest">
-            &copy; 2026 Tapicería Emmanuel. <span class="lang" data-es="Calidad Garantizada." data-en="Guaranteed Quality.">Calidad Garantizada.</span>
+
+        <div class="container mx-auto px-6 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-600 uppercase tracking-widest">
+            <p>&copy; 2026 Djieslee. All rights reserved.</p>
+            <p>Premium Hair Studio</p>
         </div>
     </footer>
 
     <!-- BOTONES FLOTANTES -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4 items-end">
-        
-        <!-- Botón Llamar (Solo Móvil) -->
-        <a href="tel:+56949511365" class="md:hidden w-14 h-14 bg-white text-tapi-navy rounded-full shadow-lg flex items-center justify-center border border-gray-200 hover:scale-110 transition-transform duration-300">
-            <i class="ph-fill ph-phone-call text-2xl animate-pulse text-tapi-gold"></i>
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+        <!-- Call (Mobile) -->
+        <a href="tel:+17542769114" class="md:hidden w-12 h-12 bg-lux-gray text-lux-gold rounded-full shadow-lg flex items-center justify-center border border-lux-gold/30">
+            <i class="ph-fill ph-phone text-xl"></i>
         </a>
 
-        <!-- Botón WhatsApp (Principal) -->
-        <a href="https://wa.me/56949511365?text=Hola%20Tapicería%20Emmanuel,%20quisiera%20cotizar%20un%20trabajo." target="_blank" class="group relative w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 border-4 border-white">
-            <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
-            
-            <!-- Tooltip -->
-            <span class="absolute right-full mr-4 bg-tapi-navy text-white px-4 py-2 rounded text-xs font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none hidden md:block uppercase tracking-wide">
-                <span class="lang" data-es="Enviar Foto" data-en="Send Photo">Enviar Foto</span>
-            </span>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/17542769114?text=Hi,%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="flex items-center gap-3 bg-lux-gold hover:bg-white hover:text-black text-black px-4 py-3 rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all group">
+            <span class="font-bold text-xs tracking-widest hidden group-hover:block uppercase lang" data-en="WhatsApp" data-es="WhatsApp">WhatsApp</span>
+            <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
         </a>
     </div>
 
     <!-- LÓGICA -->
     <script>
-        // 1. SCROLL REVEAL
+        // Scroll Reveal
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
@@ -348,101 +378,43 @@
         }
         window.addEventListener("scroll", reveal);
 
-        // 2. TOGGLE HORARIOS
+        // Toggle Horarios
         function toggleHours() {
             const list = document.getElementById('hours-list');
-            const chevron = document.getElementById('chevron');
-            list.classList.toggle('active');
-            
-            if (list.classList.contains('active')) {
-                chevron.style.transform = 'rotate(180deg)';
+            if(list.style.maxHeight) {
+                list.style.maxHeight = null;
+                list.style.opacity = 0;
             } else {
-                chevron.style.transform = 'rotate(0deg)';
+                list.style.maxHeight = list.scrollHeight + "px";
+                list.style.opacity = 1;
             }
         }
 
-        // 3. LOGICA HORARIOS (L-S 08-20, D 08-17)
-        function checkStatus() {
-            try {
-                // Zona Horaria Chile: America/Santiago
-                const now = new Date();
-                const formatter = new Intl.DateTimeFormat('en-US', {
-                    timeZone: 'America/Santiago',
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    weekday: 'short',
-                    hour12: false
-                });
-
-                const parts = formatter.formatToParts(now);
-                const hour = parseInt(parts.find(p => p.type === 'hour').value);
-                const minute = parseInt(parts.find(p => p.type === 'minute').value);
-                const day = parts.find(p => p.type === 'weekday').value; // Mon, Tue...
-                const currentTime = hour + (minute / 60);
-
-                let isOpen = false;
-
-                // Domingo: 08:00 a 17:00
-                if (day === 'Sun') {
-                    if (currentTime >= 8 && currentTime < 17) {
-                        isOpen = true;
-                    }
-                } 
-                // Lunes a Sábado: 08:00 a 20:00
-                else {
-                    if (currentTime >= 8 && currentTime < 20) {
-                        isOpen = true;
-                    }
-                }
-
-                const lang = document.getElementById('lang-text').innerText;
-                const light = document.getElementById('status-light');
-                const ping = document.getElementById('status-ping');
-                const text = document.getElementById('status-text');
-
-                if (isOpen) {
-                    light.className = "w-3 h-3 rounded-full bg-green-500 ring-2 ring-gray-100";
-                    ping.classList.remove('hidden');
-                    text.innerText = lang === 'ES' ? "ABIERTO" : "OPEN";
-                    text.className = "font-display font-bold text-xl text-green-600 tracking-wide";
-                } else {
-                    light.className = "w-3 h-3 rounded-full bg-red-500 ring-2 ring-gray-100";
-                    ping.classList.add('hidden');
-                    text.innerText = lang === 'ES' ? "CERRADO" : "CLOSED";
-                    text.className = "font-display font-bold text-xl text-red-500 tracking-wide";
-                }
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        // 4. IDIOMA
+        // Idioma Toggle
         function toggleLanguage() {
             const btn = document.getElementById('lang-text');
-            const isSpanish = btn.innerText === 'ES';
-            const target = isSpanish ? 'en' : 'es';
+            const currentLang = btn.innerText;
+            const newLang = currentLang === 'EN' ? 'ES' : 'EN';
             
-            btn.innerText = isSpanish ? 'EN' : 'ES';
+            btn.innerText = newLang;
 
             document.querySelectorAll('.lang').forEach(el => {
-                if (el.dataset[target]) {
-                    el.style.opacity = '0';
+                if (el.dataset[newLang.toLowerCase()]) {
+                    // Fade out
+                    el.style.opacity = 0;
                     setTimeout(() => {
-                        el.innerText = el.dataset[target];
-                        el.style.opacity = '1';
+                        el.innerText = el.dataset[newLang.toLowerCase()];
+                        // Fade in
+                        el.style.opacity = 1;
                     }, 200);
                 }
             });
-            setTimeout(checkStatus, 200);
         }
 
         // Init
         document.addEventListener('DOMContentLoaded', () => {
             reveal();
-            checkStatus();
         });
-        
-        setInterval(checkStatus, 60000);
     </script>
 </body>
-</html>
+            </html>
